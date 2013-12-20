@@ -1,9 +1,8 @@
 {
-  "name": "reactiontest",
+  "name": "TopScores",
   "version": "0.0.1",
-  "description": "reaction html5 game",
+  "description": "reaction topscores",
   "dependencies": {
-    "pg": "2.x",
     "express": "3.4.x"
   },
   "engines": {
