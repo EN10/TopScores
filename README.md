@@ -1,6 +1,6 @@
-reactiontest
+TopScores
 ============
 
-https://www.codeship.io/projects/5ab67410-4870-0131-2284-36f0232f7560/status
+https://www.codeship.io/projects/c0a52c80-4bcf-0131-1043-328a0651e296/status
 
-http://reactiontest.herokuapp.com/
+http://topscores.herokuapp.com/
