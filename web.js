@@ -14,7 +14,8 @@
  /* serves all the static files */
  app.get(/^(.+)$/, function(req, res){ 
      console.log('static file request : ' + req.params);
-     res.sendfile(__dirname + req.params[0]); 
+     res.sendfile(__dirname + req.params[0]);
+     console.log("req para"+req.params);
  });
 
  var port = process.env.PORT || 80;
@@ -33,7 +34,7 @@ try
 
   var txt = fs.readFileSync(filename).toString(); 
   document.getElementById("main").innerHTML = txt;
-  console.log(query);
+  console.log("url parts"+query);
 }
 catch(err)
 { console.log(err); }
