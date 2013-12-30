@@ -6,7 +6,7 @@ app.get('/', function(req, res) {
   // var fs = require('fs');
   // res.send(fs.readFileSync('Scores.txt').toString());
   res.send(req.param('q'));
-  // console.log(req.query.q);
+  console.log(req.query.q);
 });
 
 var port = process.env.PORT || 5000;
