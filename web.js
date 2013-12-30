@@ -1,12 +1,9 @@
-// web.js
-var express = require("express");
-var logfmt = require("logfmt");
+var express = require('express');
 var app = express();
+app.use(express.logger());
 
-app.use(logfmt.requestLogger());
-
-app.get('/', function(req, res) {
-  res.send('Hello World!');
+app.get('/', function(request, response) {
+  response.send('Hello World!');
 });
 
 var port = process.env.PORT || 5000;
