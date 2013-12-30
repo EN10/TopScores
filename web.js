@@ -5,8 +5,7 @@ app.use(express.logger());
 app.get('/', function(request, response) {
   // var fs = require('fs');
   // response.send(fs.readFileSync('Scores.txt').toString());
-  response.send(req.query.q.toString());
-  console.log(req.query.toString());
+  response.send(req.param('q'));
 });
 
 var port = process.env.PORT || 5000;
