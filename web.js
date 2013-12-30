@@ -5,7 +5,7 @@ app.use(express.logger());
 app.get('/', function(req, res) {
   // var fs = require('fs');
   // res.send(fs.readFileSync('Scores.txt').toString());
-  res.send(req.param('q'));
+  // res.send(req.param('q'));
   console.log(req.query.q);
 });
 
