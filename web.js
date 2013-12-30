@@ -17,9 +17,22 @@
      res.sendfile(__dirname + req.params[0]);
  });
 
- console.log("req para" + req.params[0]);
-
  var port = process.env.PORT || 80;
  app.listen(port, function() {
    console.log("Listening on " + port);
  });
+
+try 
+{ var url = require('url');
+  var url_parts = url.parse(request.url, true);
+  var query = url_parts.query;
+  
+  var fs = require('fs');
+  var filename = 'Scores.txt';
+
+  var txt = fs.readFileSync(filename).toString(); 
+  document.getElementById("main").innerHTML = txt;
+  console.log("url parts"+query);
+}
+catch(err)
+{ console.log(err); }
