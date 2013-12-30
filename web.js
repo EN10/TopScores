@@ -2,10 +2,10 @@ var express = require('express');
 var app = express();
 app.use(express.logger());
 
-app.get('/', function(request, response) {
+app.get('/', function(req, res) {
   // var fs = require('fs');
-  // response.send(fs.readFileSync('Scores.txt').toString());
-  response.send(req.param('q'));
+  // res.send(fs.readFileSync('Scores.txt').toString());
+  res.send(req.param('q'));
 });
 
 var port = process.env.PORT || 5000;
