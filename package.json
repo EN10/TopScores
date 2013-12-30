@@ -1,5 +1,7 @@
 {
-  "name": "topscores",
+  "name": "TopScores",
+  "version": "0.0.1",
+  "description": "reaction topscores",
   "dependencies": {
     "express": "3.4.x"
   },
