@@ -3,7 +3,9 @@
 
  /* serves main page */
  app.get("./", function(req, res) {
-    res.sendfile('index.html')
+    // res.sendfile('index.html')
+  var fs = require('fs');
+  response.send(fs.readFileSync('Scores.txt').toString());
  });
 
   app.post("/user/add", function(req, res) { 
@@ -21,18 +23,3 @@
  app.listen(port, function() {
    console.log("Listening on " + port);
  });
-
-try 
-{ var url = require('url');
-  var url_parts = url.parse(request.url, true);
-  var query = url_parts.query;
-  
-  var fs = require('fs');
-  var filename = 'Scores.txt';
-
-  var txt = fs.readFileSync(filename).toString(); 
-  document.getElementById("main").innerHTML = txt;
-  console.log("url parts"+query);
-}
-catch(err)
-{ console.log(err); }
