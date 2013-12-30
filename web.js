@@ -3,9 +3,8 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(req, res) {
-  // var fs = require('fs');
-  // res.send(fs.readFileSync('Scores.txt').toString());
-  // res.send(req.param('q'));
+  var fs = require('fs');
+  res.send(fs.readFileSync('Scores.txt').toString());
   res.send(req.query.q);
 });
 
