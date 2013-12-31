@@ -4,8 +4,9 @@ app.use(express.logger());
 
 app.get('/', function(req, res) {
   var fs = require('fs');
+  // txt = txt + '\n' + ;
+  fs.writeFileSync('Scores.txt', req.query.q);
   var txt = fs.readFileSync('Scores.txt').toString();
-  txt = txt + '\n' + req.query.q;
   res.send(txt);
 });
 
