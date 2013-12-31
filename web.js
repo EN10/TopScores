@@ -10,8 +10,6 @@ app.get('/', function(req, res) {
     { fs.appendFileSync('Scores.txt', "<br>" + req.query.q); }
     res.send(fs.readFileSync('Scores.txt').toString());
   }
-  else
-  {  fs.openSync('Scores.txt', a+); }
 }    
   catch(err)
   { res.send(err); }
