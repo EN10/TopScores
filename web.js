@@ -4,15 +4,13 @@ app.use(express.logger());
 
 app.get('/', function(req, res) {
   var fs = require('fs');
-  if (fs.exists('Scores.txt'))
+  try
   { if (req.query.q != undefined)
-    { fs.appendFileSync('Scores.txt', "\n" + req.query.q); }
+    { fs.appendFileSync('Scores.txt', "<br>" + req.query.q); }
     res.send(fs.readFileSync('Scores.txt').toString());
   }
-  else
-  {
-    res.send("nofile");
-  }
+  catch(err)
+  { res.send(err); }
 });
 
 var port = process.env.PORT || 80;
