@@ -7,7 +7,9 @@ app.get('/', function(req, res) {
   try
   { if (req.query.un != undefined && req.query.s != undefined)
     { fs.appendFileSync('Scores.txt', "<br>" + req.query.un + " " + req.query.s); }
-    res.send(fs.readFileSync('Scores.txt').toString());
+    // res.send(fs.readFileSync('Scores.txt').toString());
+    var array = fs.readFileSync('Scores.txt').toString().split(" ");
+    res.send(array);
   }
   catch(err)
   { res.send(err); }
