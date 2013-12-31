@@ -10,7 +10,11 @@ app.get('/', function(req, res) {
     res.send(fs.readFileSync('Scores.txt').toString());
   }
   else
-  { fs.openSync('Scores.txt', a+); }
+  { try
+    { fs.openSync('Scores.txt', a+); }
+    catch(e)
+    { res.send(e); }
+  }
 });
 
 var port = process.env.PORT || 80;
