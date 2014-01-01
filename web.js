@@ -6,10 +6,14 @@ app.get('/', function(req, res) {
   var fs = require('fs');
   try
   { if (req.query.un !== undefined && req.query.s !== undefined)
-    { fs.appendFileSync('Scores.txt', "<br>" + req.query.un + " " + req.query.s); }
-    res.send(fs.readFileSync('Scores.txt').toString());
-    // var arr = fs.readFileSync('Scores.txt').toString().split(" ");
-    // res.send(arr[0]);
+    { fs.appendFileSync('Scores.txt', "," + req.query.un + "," + req.query.s); }
+
+    // Read & Output to HTML
+    var arr = fs.readFileSync('Scores.txt').toString().split(",");
+    var txt = "";
+    for (var i=0; i<arr.length; i=i+2)
+    {   txt = txt + arr[i] +" " +arr[i+1] +"<br>";   }
+    res.send(txt);
   }
   catch(err)
   { res.send(err); }
