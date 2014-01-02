@@ -10,10 +10,11 @@ app.get('/', function(req, res) {
 
     // Read & Output to HTML
     var arr = fs.readFileSync('Scores.txt').toString().split(",");
-    var txt = "";
+    var body = "";
     for (var i=0; i<arr.length; i=i+2)
-    {   txt = txt + arr[i] +" " +arr[i+1] +"<br>";   }
-    res.send(txt);
+    {   body = body + arr[i] +" " +arr[i+1] +"<br>";   }
+    var head = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
+    res.send(head+body);
   }
   catch(err)
   { res.send(err); }
