@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
   {   var arr = fs.readFileSync('Scores.txt').toString().split(",");
       if (req.query.un !== undefined && req.query.s !== undefined)
         { var scores = "";
-            for (var i=0; i<arr.length; i=i+2)
+            for (var i=0; i<arr.length+2; i=i+2)
             {   if (req.query.s <= arr[i+1])
                 { scores = scores +req.query.un +"," +arr[i+1] +","; }
                 else
