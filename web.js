@@ -4,17 +4,24 @@ app.use(express.logger());
 
 app.get('/', function(req, res) {
   var fs = require('fs');
-  try
-  { if (req.query.un !== undefined && req.query.s !== undefined)
-    { fs.appendFileSync('Scores.txt', "," + req.query.un + "," + req.query.s); }
-
-    // Read & Output to HTML
-    var arr = fs.readFileSync('Scores.txt').toString().split(",");
-    var body = "";
-    for (var i=0; i<arr.length; i=i+2)
-    {   body = body + arr[i] +" " +arr[i+1] +"<br>";   }
-    var head = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
-    res.send(head+body);
+  try       // Insert Score
+  {   var arr = fs.readFileSync('Scores.txt').toString().split(",");
+      if (req.query.un !== undefined && req.query.s !== undefined)
+        { var scores = "";
+            for (var i=0; i<arr.length; i=i+2)
+            {   if (req.query.s <= arr[i+1])
+                { scores = scores +req.query.un +"," +arr[i+1] +","; }
+                else
+                { scores = scores +arr[i] +"," +arr[i+1] +","; }
+            fs.writeFileSync('Scores.txt', scores); 
+            }
+        }
+            // Read & Output to HTML
+        var body = "";
+        for (var j=0; j<arr.length; j=i+2)
+        {   body = body + arr[j] +" " +arr[j+1] +"<br>";   }
+        var head = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
+        res.send(head+body);
   }
   catch(err)
   { res.send(err); }
