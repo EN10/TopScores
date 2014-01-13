@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
         }   // Read & Output to HTML
         arr = fs.readFileSync('Scores.txt').toString().split(",");
         var body = "";
-        for (var j=0; j<arr.length-1; j=j+2)
+        for (var j=0; j<arr.length; j=j+2)
         {   body = body + arr[j] +" " +arr[j+1] +"<br>";   }
         var head = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
         res.send(head+body); 
