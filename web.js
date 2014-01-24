@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
                 { scores = scores +arr[i] +"," +arr[i+1] +","; } 
             } 
         fs.writeFileSync('Scores.txt', scores);*/
-        fs.appendFileSync('Scores.txt', "," + req.query.un + "," + req.query.s);
+        fs.appendFileSync('Scores.txt', req.query.un + "," + req.query.s + ",");
         }   // Read & Output to HTML
         arr = fs.readFileSync('Scores.txt').toString().split(",");
         var body = "";
